@@ -32,7 +32,10 @@ class View extends BaseView
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        // Custom filters
+        'hideNumbers' => '\CodeIgniter\View\Filters::hideNumbers', // Function implementation should be done in Filter file in System folder
+    ];
 
     /**
      * Parser Plugins provide a way to extend the functionality provided

@@ -27,4 +27,8 @@ class Home extends BaseController{
 
         return view("aboutview", $data);
     }
+
+    public function online(){
+        echo "Hello!!!";
+    }
 }

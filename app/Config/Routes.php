@@ -14,7 +14,16 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+
+$routes->set404Override(function(){
+    // Custom Errors
+    $data = [
+        "page_title" => "404 Not Found",
+        "page_heading" => "404 Not Found",
+    ];
+    echo view('errors/custom_errors', $data);
+});
+
 $routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
@@ -31,6 +40,16 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+
+// $routes -> add('codeigniter-4-training', 'Home::training');
+// $routes -> add('online-training', 'Home:: online');
+// $routes -> add ('about', 'Home::about');
+
+// Hiding method names and defining own routes
+// $myroutes = [];
+// $myroutes['/(:alpha)'] = 'Sample::create/$1';
+// $routes -> map($myroutes);
 
 /*
  * --------------------------------------------------------------------

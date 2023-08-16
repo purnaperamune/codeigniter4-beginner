@@ -7,6 +7,10 @@
   <p>Only when the button is clicked, the navigation bar will be displayed.</p>
 </div>
 
+<section>
+    <?= $this -> include("partials/feature"); ?>
+</section>
+
 <?= $this -> endSection();?>
 
 
